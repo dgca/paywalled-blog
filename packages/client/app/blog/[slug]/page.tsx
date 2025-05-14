@@ -162,7 +162,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                 <p>Checking payment status...</p>
               </div>
             ) : !hasPaid ? (
-              <div className="bg-blue-50 border border-blue-200 rounded-md p-6 mb-8">
+              <div className="border border-blue-200 rounded-md p-6 mb-8">
                 <h3 className="text-xl font-semibold mb-2">Premium Content</h3>
                 <p className="mb-4">
                   This content requires a one-time payment of $1 (0.0005 ETH).
