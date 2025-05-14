@@ -1,17 +1,4 @@
 import Link from "next/link";
-import {
-  ConnectWallet,
-  Wallet,
-  WalletDropdown,
-  WalletDropdownDisconnect,
-} from "@coinbase/onchainkit/wallet";
-import {
-  Name,
-  Identity,
-  Address,
-  Avatar,
-  EthBalance,
-} from "@coinbase/onchainkit/identity";
 import { getAllPosts } from "../lib/mdx";
 
 export default function HomePage() {
@@ -21,28 +8,6 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen font-sans text-[var(--app-foreground)] mini-app-theme from-[var(--app-background)] to-[var(--app-gray)]">
       <div className="w-full mx-auto px-4 py-3 md:px-8 lg:px-12 max-w-4xl">
-        <header className="flex justify-between items-center mb-6 h-11">
-          <div className="text-xl font-bold">My Personal Blog</div>
-          <div>
-            <div className="flex items-center space-x-2">
-              <Wallet className="z-10">
-                <ConnectWallet>
-                  <Name className="text-inherit" />
-                </ConnectWallet>
-                <WalletDropdown>
-                  <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
-                    <Avatar />
-                    <Name />
-                    <Address />
-                    <EthBalance />
-                  </Identity>
-                  <WalletDropdownDisconnect />
-                </WalletDropdown>
-              </Wallet>
-            </div>
-          </div>
-        </header>
-
         <main className="flex-1">
           <section className="mb-10">
             <h1 className="text-3xl font-bold mb-4">Welcome to My Blog</h1>
@@ -101,7 +66,7 @@ export default function HomePage() {
         </main>
 
         <footer className="mt-12 pt-6 border-t border-gray-200 text-center text-gray-500 text-sm">
-          <p>© 2023 My Personal Blog. Built with Next.js.</p>
+          <p>© 2023 My Personal Blog. Built with MiniKit.</p>
         </footer>
       </div>
     </div>

@@ -1,7 +1,20 @@
 import "./theme.css";
 import "@coinbase/onchainkit/styles.css";
-import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import {
+  ConnectWallet,
+  Wallet,
+  WalletDropdown,
+  WalletDropdownDisconnect,
+} from "@coinbase/onchainkit/wallet";
+import {
+  Name,
+  Identity,
+  Address,
+  Avatar,
+  EthBalance,
+} from "@coinbase/onchainkit/identity";
+import type { Metadata, Viewport } from "next";
 import { Providers } from "./providers";
 
 export const viewport: Viewport = {
@@ -43,7 +56,35 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-background">
-        <Providers>{children}</Providers>
+        <Providers>
+          <div className="w-full mx-auto px-4 py-3 md:px-8 lg:px-12 max-w-4xl">
+            <header className="flex justify-between items-center mb-6 h-11">
+              <div className="text-xl font-bold">Dan&apos;s Blog</div>
+              <div>
+                <div className="flex items-center space-x-2">
+                  <Wallet className="z-10">
+                    <ConnectWallet>
+                      <Name className="text-inherit" />
+                    </ConnectWallet>
+                    <WalletDropdown>
+                      <Identity
+                        className="px-4 pt-3 pb-2"
+                        hasCopyAddressOnClick
+                      >
+                        <Avatar />
+                        <Name />
+                        <Address />
+                        <EthBalance />
+                      </Identity>
+                      <WalletDropdownDisconnect />
+                    </WalletDropdown>
+                  </Wallet>
+                </div>
+              </div>
+            </header>
+          </div>
+          {children}
+        </Providers>
       </body>
     </html>
   );

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.28;
-// import "hardhat/console.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-// Flesh out this contract to do the following:
+// Prompt:
 //
+// Flesh out this contract to do the following:
 // It should be ownable.
 // It should keep track of content ids and whether or not a use has paid.
 // Content always costs $1.
