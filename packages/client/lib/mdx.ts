@@ -4,6 +4,7 @@ import matter from "gray-matter";
 
 // Define the type for Blog metadata
 export interface BlogPost {
+  id: number;
   slug: string;
   title: string;
   date: string;
@@ -23,7 +24,7 @@ export function getAllPosts(): BlogPost[] {
   const mdxFiles = files.filter((file) => file.endsWith(".mdx"));
 
   // Get the metadata from each file
-  const posts = mdxFiles.map((file) => {
+  const posts = mdxFiles.map((file, index) => {
     // Remove the .mdx extension to get the slug
     const slug = file.replace(/\.mdx$/, "");
 
@@ -36,6 +37,7 @@ export function getAllPosts(): BlogPost[] {
 
     // Return the post metadata
     return {
+      id: data.id || index + 1, // Use the frontmatter id or fall back to index+1
       slug,
       title: data.title,
       date: data.date,
@@ -65,6 +67,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
 
     // Return the post metadata
     return {
+      id: data.id || 1, // Use the frontmatter id or default to 1
       slug,
       title: data.title,
       date: data.date,
