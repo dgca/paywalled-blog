@@ -1,3 +1,5 @@
+"use client";
+
 import "./theme.css";
 import "@coinbase/onchainkit/styles.css";
 import "./globals.css";

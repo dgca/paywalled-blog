@@ -9,6 +9,7 @@ import { useAccount } from "wagmi";
 import { useWriteContract } from "wagmi";
 import ContentManagerABI from "../../../lib/ContentManagerABI";
 import { CONTENT_MANAGER_ADDRESS } from "../../../utils/constants";
+import { useMiniKit } from "@coinbase/onchainkit/minikit";
 
 interface BlogPost {
   id: number;
@@ -27,6 +28,14 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   const [hasPaid, setHasPaid] = useState(false);
   const [checkingPayment, setCheckingPayment] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const { setFrameReady, isFrameReady } = useMiniKit();
+
+  useEffect(() => {
+    if (!isFrameReady) {
+      setFrameReady();
+    }
+  }, [setFrameReady, isFrameReady]);
 
   const contractAddress = CONTENT_MANAGER_ADDRESS as `0x${string}`;
 
