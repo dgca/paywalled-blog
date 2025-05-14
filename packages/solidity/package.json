@@ -1,0 +1,23 @@
+{
+  "name": "solidity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "hardhat": "npx hardhat",
+    "node": "hardhat node",
+    "compile": "hardhat compile",
+    "deploy-local": "hardhat run --network localhost scripts/deploy.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Daniel Cortes",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
+    "@openzeppelin/contracts": "^5.2.0",
+    "hardhat": "^2.22.18",
+    "prettier": "^3.5.3",
+    "prettier-plugin-solidity": "^1.4.2"
+  }
+}
