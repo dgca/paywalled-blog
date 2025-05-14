@@ -15,6 +15,7 @@ import {
 } from "@coinbase/onchainkit/identity";
 import { useMiniKit } from "@coinbase/onchainkit/minikit";
 import { useEffect } from "react";
+import Link from "next/link";
 
 export function Header() {
   const { setFrameReady, isFrameReady } = useMiniKit();
@@ -26,7 +27,9 @@ export function Header() {
   }, [setFrameReady, isFrameReady]);
   return (
     <header className="flex justify-between items-center mb-6 h-11">
-      <div className="text-xl font-bold">Dan&apos;s Blog</div>
+      <Link href="/" className="text-xl font-bold">
+        Dan&apos;s Blog
+      </Link>
       <div>
         <div className="flex items-center space-x-2">
           <Wallet className="z-10">
