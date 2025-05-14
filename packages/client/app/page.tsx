@@ -2,18 +2,8 @@
 
 import Link from "next/link";
 import { getAllPosts } from "../lib/mdx";
-import { useEffect } from "react";
-import { useMiniKit } from "@coinbase/onchainkit/minikit";
 
 export default function HomePage() {
-  const { setFrameReady, isFrameReady } = useMiniKit();
-
-  useEffect(() => {
-    if (!isFrameReady) {
-      setFrameReady();
-    }
-  }, [setFrameReady, isFrameReady]);
-
   // Get all blog posts for the homepage
   const blogPosts = getAllPosts();
 
