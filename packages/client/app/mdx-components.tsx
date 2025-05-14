@@ -9,7 +9,7 @@ import { ReactNode } from "react";
 // components from other libraries, and more.
 
 interface ChildProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 interface LinkProps extends ChildProps {
